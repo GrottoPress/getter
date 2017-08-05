@@ -46,7 +46,7 @@ class Getter_Test extends TestCase {
 
     public function test_using_valid_callback_returns_values() {
         $this->assertEquals( $this->example_class->get( 'att_1', function ( $value ) {
-            return $this->att_1;
+            return $value;
         } ), $this->att_1 );
         
         $this->assertEquals( $this->example_class->get( 'att_2', 'intval' ), intval( $this->att_2 ) );
