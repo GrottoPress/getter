@@ -14,8 +14,6 @@
 
 namespace GrottoPress\Getter;
 
-if ( ! trait_exists( __NAMESPACE__ . '\Getter' ) ) :
-
 /**
  * Getter
  *
@@ -54,7 +52,7 @@ trait Getter {
     }
 
     /**
-     * Allow get
+     * Gettables
      *
      * Defines the attributes that can be retrieved
      * with our getter.
@@ -68,5 +66,3 @@ trait Getter {
         return [];
     }
 }
-
-endif;

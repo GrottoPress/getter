@@ -43,4 +43,4 @@ Getter is a trait, so you need to import into your class to use it:
     // Try to get attributes
     echo $object->get( 'att_1' ); // Hello
     echo $object->get( 'att_2', 'intval' ); // 4
-    echo $object->get( 'att_3' ); // Error
+    echo $object->get( 'att_3' ); // Error: not gettable
