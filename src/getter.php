@@ -54,7 +54,7 @@ trait Getter {
     }
 
     /**
-     * Allow get
+     * Gettables
      *
      * Defines the attributes that can be retrieved
      * with our getter.
