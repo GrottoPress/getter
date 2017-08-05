@@ -32,23 +32,23 @@ trait Getter {
      * @return mixed Attribute
      */
     final public function get( $attribute, $validate_callback = '' ) {
-        if ( ! property_exists( get_called_class(), $attribute ) ) {
-            throw new Exception( "$attribute attribute does not exist." );
+        if ( ! \property_exists( \get_called_class(), $attribute ) ) {
+            throw new \Exception( "$attribute attribute does not exist." );
         }
 
-        if ( ! in_array( $attribute, $this->gettables() ) ) {
-            throw new Exception( "Getting $attribute attribute is not allowed." );
+        if ( ! \in_array( $attribute, $this->gettables() ) ) {
+            throw new \Exception( "Getting $attribute attribute is not allowed." );
         }
 
         if ( ! $validate_callback ) {
             return $this->$attribute;
         }
 
-        if ( ! is_callable( $validate_callback ) ) {
-            throw new Exception( "$validate_callback is not a callable." );
+        if ( ! \is_callable( $validate_callback ) ) {
+            throw new \Exception( "$validate_callback is not a callable." );
         }
 
-        return call_user_func( $validate_callback, $this->$attribute );
+        return \call_user_func( $validate_callback, $this->$attribute );
     }
 
     /**
