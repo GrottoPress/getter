@@ -14,8 +14,6 @@
 
 namespace GrottoPress\Getter;
 
-if ( ! trait_exists( __NAMESPACE__ . '\Getter' ) ) :
-
 /**
  * Getter
  *
@@ -68,5 +66,3 @@ trait Getter {
         return [];
     }
 }
-
-endif;
