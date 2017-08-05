@@ -33,11 +33,11 @@ trait Getter {
      */
     final public function get( $attribute, $validate_callback = '' ) {
         if ( ! property_exists( get_called_class(), $attribute ) ) {
-            throw new Exception( "$attribute attribute does not exist." );
+            throw new \Exception( "$attribute attribute does not exist." );
         }
 
         if ( ! in_array( $attribute, $this->gettables() ) ) {
-            throw new Exception( "Getting $attribute attribute is not allowed." );
+            throw new \Exception( "Getting $attribute attribute is not allowed." );
         }
 
         if ( ! $validate_callback ) {
@@ -45,7 +45,7 @@ trait Getter {
         }
 
         if ( ! is_callable( $validate_callback ) ) {
-            throw new Exception( "$validate_callback is not a callable." );
+            throw new \Exception( "$validate_callback is not a callable." );
         }
 
         return call_user_func( $validate_callback, $this->$attribute );
