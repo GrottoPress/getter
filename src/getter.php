@@ -62,7 +62,5 @@ trait Getter {
      *
      * @return array Attributes.
      */
-    protected function gettables() {
-        return [];
-    }
+    abstract protected function gettables();
 }
