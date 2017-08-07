@@ -31,12 +31,12 @@ trait Getter {
      *
      * @return mixed Attribute
      */
-    final public function get( $attribute, $validate_callback = '' ) {
+    final public function get( $attribute, $validate_callback = null ) {
         if ( ! \property_exists( \get_called_class(), $attribute ) ) {
             throw new \Exception( "$attribute attribute does not exist." );
         }
 
-        if ( ! \in_array( $attribute, $this->gettables() ) ) {
+        if ( ! \in_array( $attribute, ( array ) $this->gettables() ) ) {
             throw new \Exception( "Getting $attribute attribute is not allowed." );
         }
 
