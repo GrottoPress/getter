@@ -49,7 +49,7 @@ class Getter_Test extends TestCase {
             return $value;
         } ), $this->att_1 );
         
-        $this->assertEquals( $this->example_class->get( 'att_2', 'intval' ), intval( $this->att_2 ) );
+        $this->assertEquals( $this->example_class->get( 'att_2', 'intval' ), \intval( $this->att_2 ) );
     }
 
     public function test_getting_disallowed_atts_returns_exception() {
