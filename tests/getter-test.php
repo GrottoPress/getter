@@ -12,6 +12,8 @@
  * @author N Atta Kus Adusei (https://twitter.com/akadusei)
  */
 
+declare ( strict_types = 1 );
+
 namespace GrottoPress\Getter\Tests;
 
 use PHPUnit\Framework\TestCase;
@@ -40,30 +42,17 @@ class Getter_Test extends TestCase {
     }
 
     public function test_getting_allowed_atts_returns_values() {
-		$this->assertEquals( $this->example_class->get( 'att_1' ), $this->att_1 );
-        $this->assertEquals( $this->example_class->get( 'att_2' ), $this->att_2 );
+		$this->assertEquals( $this->example_class->att_1, $this->att_1 );
+        $this->assertEquals( $this->example_class->att_2, $this->att_2 );
 	}
-
-    public function test_using_valid_callback_returns_values() {
-        $this->assertEquals( $this->example_class->get( 'att_1', function ( $value ) {
-            return $value;
-        } ), $this->att_1 );
-        
-        $this->assertEquals( $this->example_class->get( 'att_2', 'intval' ), \intval( $this->att_2 ) );
-    }
 
     public function test_getting_disallowed_atts_returns_exception() {
         $this->expectException( \Exception::class );
-        $this->example_class->get( 'att_3' );
+        $this->example_class->att_3;
     }
 
-    public function test_getting_invalid_atts_returns_exception() {
+    public function test_getting_non_existent_atts_returns_exception() {
         $this->expectException( \Exception::class );
-        $this->example_class->get( 'att 22' );
-    }
-
-    public function test_using_invalid_callback_returns_exception() {
-        $this->expectException( \Exception::class );
-        $this->example_class->get( 'att_1', 'invalid_callback' );
+        $this->example_class->att_45;
     }
 }

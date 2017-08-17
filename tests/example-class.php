@@ -15,6 +15,8 @@
  * @author N Atta Kus Adusei (https://twitter.com/akadusei)
  */
 
+declare ( strict_types = 1 );
+
 namespace GrottoPress\Getter\Tests;
 
 use GrottoPress\Getter\Getter;
@@ -37,7 +39,7 @@ class Example_Class {
         $this->att_3 = 'Hey!';
     }
 
-    protected function gettables() {
+    protected function gettables(): array {
         return [ 'att_1', 'att_2' ];
     }
 }

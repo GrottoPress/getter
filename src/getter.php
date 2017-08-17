@@ -12,6 +12,8 @@
  * @author N Atta Kus Adusei (https://twitter.com/akadusei)
  */
 
+declare ( strict_types = 1 );
+
 namespace GrottoPress\Getter;
 
 /**
@@ -24,31 +26,22 @@ trait Getter {
      * Get attribute
      *
      * @var string $attribute Name of attribute to get
-     * @var callable $validate_callback Callback function to validate attribute
      *
      * @since 0.1.0
      * @access public
      *
      * @return mixed Attribute
      */
-    final public function get( $attribute, $validate_callback = null ) {
+    final public function __get( string $attribute ) {
         if ( ! \property_exists( \get_called_class(), $attribute ) ) {
             throw new \Exception( "$attribute attribute does not exist." );
         }
 
-        if ( ! \in_array( $attribute, ( array ) $this->gettables() ) ) {
+        if ( ! \in_array( $attribute, $this->gettables() ) ) {
             throw new \Exception( "Getting $attribute attribute is not allowed." );
         }
 
-        if ( ! $validate_callback ) {
-            return $this->$attribute;
-        }
-
-        if ( ! \is_callable( $validate_callback ) ) {
-            throw new \Exception( "$validate_callback is not a callable." );
-        }
-
-        return \call_user_func( $validate_callback, $this->$attribute );
+        return $this->$attribute;
     }
 
     /**
@@ -62,5 +55,5 @@ trait Getter {
      *
      * @return array Attributes.
      */
-    abstract protected function gettables();
+    abstract protected function gettables(): array;
 }
