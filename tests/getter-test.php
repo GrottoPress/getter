@@ -42,8 +42,8 @@ class Getter_Test extends TestCase {
     }
 
     public function test_getting_allowed_atts_returns_values() {
-		$this->assertEquals( $this->example_class->att_1, $this->att_1 );
-        $this->assertEquals( $this->example_class->att_2, $this->att_2 );
+		$this->assertSame( $this->example_class->att_1, $this->att_1 );
+        $this->assertSame( $this->example_class->att_2, $this->att_2 );
 	}
 
     public function test_getting_disallowed_atts_returns_exception() {
