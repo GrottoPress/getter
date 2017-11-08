@@ -5,13 +5,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased - 0.2.0
-### Removed
-- PHP 5 support: Requires PHP version 7.0 or newer.
 
 ### Changed
-- Using `__get` magic method. You should now get attributes directly instead of via `get` method.
+- Compliant with [PSR-1](http://www.php-fig.org/psr/psr-1/), [PSR-2](http://www.php-fig.org/psr/psr-2/) and [PSR-4](http://www.php-fig.org/psr/psr-4/)
+- Replaced PHP Unit with Codeception for testing
+- Allowed getting attribute directly instead of via getter method call.
+
+### Removed
+- Removed PHP 5 support: Requires PHP version 7.0 or newer.
 
 ## 0.1.3 - 2017-08-08
+
 ### Added
 - Added CHANGELOG.md
 
@@ -20,6 +24,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Ensure `gettables` method call returns array.
 
 ## 0.1.2 - 2017-08-05
+
 ### Changed
 - Updated test classes to use phpunit version 6
 
@@ -27,6 +32,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Fixed wrong return value for callable parameter to `get` method in getter tests
 
 ## 0.1.1 - 2017-08-05
+
 ### Added
 - Set up test suite with [PHPUnit](https://phpunit.de)
 

@@ -24,12 +24,12 @@
         "php": ">=7.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.3"
+        "codeception/codeception": "^2.3"
     },
     "autoload": {
-        "classmap": [ "src/" ]
+        "psr-4": { "GrottoPress\\Getter\\": "src/" }
     },
     "autoload-dev": {
-        "classmap": [ "tests/" ]
+        "psr-4": { "GrottoPress\\Getter\\": "tests/unit/" }
     }
 }
