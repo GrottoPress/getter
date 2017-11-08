@@ -1,6 +1,6 @@
 {
     "name": "grottopress/getter",
-    "description": "A library to get object attributes",
+    "description": "Get private object attributes directly, without calling getter methods.",
     "license": "MIT",
     "authors": [
         {
