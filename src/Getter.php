@@ -39,9 +39,9 @@ trait Getter
     final public function __get(string $attribute)
     {
         if (!\property_exists(static::class, $attribute)) {
-            throw new Exception("'$attribute' attribute does not exist.");
+            throw new Exception("'{$attribute}' attribute does not exist.");
         }
 
-        return $this->{"get$attribute"}();
+        return $this->{"get{$attribute}"}();
     }
 }
