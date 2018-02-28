@@ -11,7 +11,7 @@
  * @since 0.1.1
  *
  * @author GrottoPress (https://www.grottopress.com)
- * @author N Atta Kus Adusei (https://twitter.com/akadusei)
+ * @author N Atta Kusi Adusei (https://twitter.com/akadusei)
  */
 
 declare (strict_types = 1);
