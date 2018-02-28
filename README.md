@@ -6,7 +6,7 @@
 
 For example, instead of calling `$myObject->getMyAttr()`, you can just do `$myObject->myAttr`. Under the hood, *Getter* gets your attribute by calling a private `getMyAttr()` method that you define in your class.
 
-This way, you get the benefit of syntactic sugar, while still maintaining encapsulation.
+This way, you get the benefit of syntactic sugar, while maintaining encapsulation.
 
 ## Usage
 
@@ -14,45 +14,49 @@ Install via composer:
 
 `composer require grottopress/getter`
 
-*Getter* is a trait, so you need to import it into your class to use it:
+Import trait into your class, and use thus:
 
-    <?php
-    declare (strict_types = 1);
+```php
+<?php
+declare (strict_types = 1);
 
-    use GrottoPress\Getter\Getter;
+namespace Vendor;
 
-    class MyClass
+use GrottoPress\Getter\GetterTrait;
+
+class MyClass
+{
+    /**
+     * Import trait
+     */
+    use GetterTrait;
+
+    private $haveMe;
+    private $leaveMeAlone;
+
+    public function __construct()
     {
-        /**
-         * Import getter
-         */
-        use Getter;
-
-        private $haveMe;
-        private $leaveMeAlone;
-
-        public function __construct()
-        {
-            $this->haveMe = 'hello';
-            $this->leaveMeAlone = 'Go away!';
-        }
-
-        /**
-         * Define your private getter method
-         * Method name should be of the format "get{$attrName}"
-         */
-        private function getHaveMe(): string
-        {
-            return $this->HaveMe;
-        }
-
-        ...
+        $this->haveMe = 'hello';
+        $this->leaveMeAlone = 'Go away!';
     }
 
-    // Instantiate
-    $object = new MyClass();
+    /**
+     * Define your private getter method
+     * Method name should be of the format "get{$attrName}"
+     */
+    private function getHaveMe(): string
+    {
+        return $this->HaveMe;
+    }
 
-    // Try to get attributes
-    echo $object->haveMe; // Hello
-    echo $object->leaveMeAlone; // Error: getLeaveMeAlone() not defined
-    echo $object->nonExistent; // Exception: Does not exist
+    // ...
+}
+
+// Instantiate
+$object = new MyClass();
+
+// Try to get attributes
+echo $object->haveMe; // hello
+echo $object->leaveMeAlone; // Error: 'getLeaveMeAlone()' not defined
+echo $object->nonExistent; // Exception: 'nonExistent' does not exist
+```
