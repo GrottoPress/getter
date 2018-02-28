@@ -25,7 +25,7 @@ namespace GrottoPress\Getter;
  */
 class ExampleClass
 {
-    use Getter;
+    use GetterTrait;
 
     private $canGet;
     private $cannotGet;
