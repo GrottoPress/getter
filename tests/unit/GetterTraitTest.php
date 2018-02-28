@@ -7,7 +7,7 @@ use Codeception\Test\Unit;
 use Exception;
 use Error;
 
-class GetterTest extends Unit
+class GetterTraitTest extends Unit
 {
     /**
      * @var object
