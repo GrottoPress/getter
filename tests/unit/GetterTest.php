@@ -10,35 +10,44 @@ use Error;
 class GetterTest extends Unit
 {
     /**
-     * @var string
+     * @var object
      */
-    private $attribute;
-
-    /**
-     * @var ExampleClass
-     */
-    private $example;
+    private $object;
 
     protected function _before()
     {
-        $this->attribute = 'hello'; // Should be same as in ExampleClass
-        $this->example = new ExampleClass();
+        $this->object = new class {
+            use GetterTrait;
+
+            private $canGet;
+            private $cannotGet;
+
+            public function __construct()
+            {
+                $this->canGet = 'hello';
+            }
+
+            private function getCanGet(): string
+            {
+                return $this->canGet;
+            }
+        };
     }
 
-    public function testGetPrivateAttributeWithPrivateGetterMethodWorks()
+    public function testGettingPrivateAttributeWithPrivateGetterMethodWorks()
     {
-        $this->assertSame($this->attribute, $this->example->canGet);
+        $this->assertSame('hello', $this->object->canGet);
     }
 
-    public function testGetPrivateAttributeWithNoGetterMethodReturnsError()
+    public function testGettingPrivateAttributeWithNoGetterMethodReturnsError()
     {
         $this->expectException(Error::class);
-        $this->example->cannotGet;
+        $this->object->cannotGet;
     }
 
-    public function testGetNonExistentAtrributeReturnsException()
+    public function testGettingNonExistentAtrributeReturnsException()
     {
         $this->expectException(Exception::class);
-        $this->example->nonExistent;
+        $this->object->nonExistent;
     }
 }
