@@ -10,7 +10,7 @@ trait GetterTrait
     /**
      * @return mixed
      */
-    final public function __get(string $attribute)
+    public function __get(string $attribute)
     {
         if (!\property_exists(static::class, $attribute)) {
             throw new Exception("'{$attribute}' attribute does not exist.");
