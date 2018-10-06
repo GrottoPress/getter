@@ -1,46 +1,46 @@
 {
-    "name": "grottopress/getter",
-    "description": "Get private object attributes directly, without calling getter methods.",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "GrottoPress.com",
-            "email": "info@grottopress.com",
-            "homepage": "https://www.grottopress.com"
-        },
-        {
-          "name": "N Atta Kusi Adusei",
-          "homepage": "https://twitter.com/akadusei",
-          "role": "Developer"
-        }
-    ],
-    "keywords": [ "OOP", "getter" ],
-    "support": {
-        "issues": "https://github.com/GrottoPress/getter/issues",
-        "wiki": "https://github.com/GrottoPress/getter/wiki",
-        "source": "https://github.com/GrottoPress/getter/"
+  "name": "grottopress/getter",
+  "description": "Get private object attributes directly, without calling getter methods.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "GrottoPress.com",
+      "email": "info@grottopress.com",
+      "homepage": "https://www.grottopress.com"
     },
-    "require": {
-        "php": ">=7.0"
-    },
-    "require-dev": {
-        "codeception/codeception": "^2.3"
-    },
-    "autoload": {
-        "psr-4": { "GrottoPress\\Getter\\": "src/" }
-    },
-    "autoload-dev": {
-        "psr-4": { "GrottoPress\\Getter\\": "tests/unit/" }
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "chmod +x ./bin/*"
-        ],
-        "test": [
-            "./vendor/bin/codecept run unit"
-        ],
-        "release": [
-            "./bin/release"
-        ]
+    {
+      "name": "N Atta Kusi Adusei",
+      "homepage": "https://twitter.com/akadusei",
+      "role": "Developer"
     }
+  ],
+  "keywords": [ "OOP", "getter" ],
+  "support": {
+    "issues": "https://github.com/GrottoPress/getter/issues",
+    "wiki": "https://github.com/GrottoPress/getter/wiki",
+    "source": "https://github.com/GrottoPress/getter/"
+  },
+  "require": {
+    "php": ">=7.0"
+  },
+  "require-dev": {
+    "codeception/codeception": "^2.3"
+  },
+  "autoload": {
+    "psr-4": { "GrottoPress\\Getter\\": "src/" }
+  },
+  "autoload-dev": {
+    "psr-4": { "GrottoPress\\Getter\\": "tests/unit/" }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "chmod +x ./bin/*"
+    ],
+    "test": [
+      "./vendor/bin/codecept run unit"
+    ],
+    "release": [
+      "./bin/release"
+    ]
+  }
 }
