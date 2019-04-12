@@ -36,7 +36,7 @@ class MyClass
 
     public function __construct()
     {
-        $this->haveMe = 'hello';
+        $this->haveMe = 'Hello :-)';
         $this->leaveMeAlone = 'Go away!';
     }
 
@@ -46,17 +46,17 @@ class MyClass
      */
     private function getHaveMe(): string
     {
-        return $this->HaveMe;
+        return $this->haveMe;
     }
 
     // ...
 }
 
 // Instantiate
-$object = new MyClass();
+$object = new Vendor\MyClass();
 
 // Try to get attributes
-echo $object->haveMe; // hello
-echo $object->leaveMeAlone; // Error: 'getLeaveMeAlone()' not defined
-echo $object->nonExistent; // Exception: 'nonExistent' does not exist
+echo $object->haveMe; // => Hello :-)
+echo $object->leaveMeAlone; // => Error: 'getLeaveMeAlone()' not defined
+echo $object->nonExistent; // => Exception: 'nonExistent' does not exist
 ```
